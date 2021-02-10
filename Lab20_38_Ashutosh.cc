@@ -1,5 +1,7 @@
 #include <iostream>
 
+using namespace std;
+
 class Shape
 {
 protected:
@@ -8,7 +10,7 @@ protected:
 public:
     virtual void find_vol() = 0;
 };
-class Cube : publicShape
+class Cube : public Shape
 {
 protected:
     double side;
@@ -17,39 +19,39 @@ public:
     Cube();
     void find_vol();
 };
-class Sphere : publicShape
+class Sphere : public Shape
 {
 protected:
     double radius;
 
 public:
     Sphere();
-    voidfind_vol();
+    void find_vol();
 };
 Cube::Cube()
 {
-    cout <<”Enter side of the Cube :”<< endl;
+    cout << "Enter side of the Cube :" << endl;
     cin >> side;
 }
 Sphere::Sphere()
 {
-    cout <<”Enter radius of the sphere :”<< endl;
+    cout << "Enter radius of the sphere :" << endl;
     cin >> radius;
 }
 void Cube::find_vol()
 {
     volume = side * side * side;
-    cout <<”Volume ofCube is : ”<< volume << endl;
+    cout << "Volume ofCube is : " << volume << endl;
 }
 void Sphere::find_vol()
 {
     volume = (4 / 3) * 3.14 * radius * radius * radius;
-    cout <<”Volume of sphere is : ”<< volume;
+    cout << "Volume of sphere is : " << volume;
 }
 void main()
 {
     Shape *ptr;
-    Cubecube;
+    Cube cube;
     Sphere sphere;
     ptr = &cube;
     ptr->find_vol();
